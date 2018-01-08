@@ -1,9 +1,17 @@
 <h1>Quotes</h1>
 <hr>
-<ol>
-  <div *ngFor='let quote of quotes; let i = index'>
-    <li>{{quote.name}}</li>
-    <app-quote-details *ngIf="quote.showConstructor" [quote]='quote' (isComplete)='completeQuote($event,i)'></app-quote-details>
-    <button type="submit" (click)='toogleConstructors(i)'>Remove</button>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <app-quote-form></app-quote-form>
+    </div>
+    <div class="col-6" *ngFor='let quote of quotes; let i = index'>
+      <li id="{{i}}" appStrikethrough>{{quote.name}}</li>
+      <app-quote-details *ngIf="quote.showConstructor" [quote]='quote' (isComplete)='completeQuote($event,i)'></app-quote-details>
+      <button class="btn btn-warning" (click)='toogleConstructors(i)'>Details</button>
+    </div>
   </div>
-</ol>
+</div>
+<!-- <ol>
+</ol> -->
