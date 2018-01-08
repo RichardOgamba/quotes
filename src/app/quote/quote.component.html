@@ -1,0 +1,9 @@
+<h1>Quotes</h1>
+<hr>
+<ol>
+  <div *ngFor='let quote of quotes; let i = index'>
+    <li>{{quote.name}}</li>
+    <app-quote-details *ngIf="quote.showConstructor" [quote]='quote' (isComplete)='completeQuote($event,i)'></app-quote-details>
+    <button type="submit" (click)='toogleConstructors(i)'>Remove</button>
+  </div>
+</ol>
