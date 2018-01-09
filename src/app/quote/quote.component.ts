@@ -14,6 +14,12 @@ export class QuoteComponent implements OnInit {
     new Quote(4, 'Darkness cannot drive out darkness; only lightcan do that. Hate cannot drive out hate; only love can do that', '- Martin Luther King Jr.')
   ]
 
+  addNewQuote(quote) {
+    let quoteLength = this.quotes.length;
+    quote.id=quoteLength +1
+    this.quotes.push(quote)
+  }
+
   completeQuote(isComplete, index){
     if (isComplete){
       this.quotes.splice(index, 1);

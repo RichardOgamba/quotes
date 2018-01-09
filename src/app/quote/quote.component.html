@@ -1,17 +1,29 @@
-<h1>Quotes</h1>
-<hr>
-
 <div class="container">
-  <div class="row">
-    <div class="col-6">
-      <app-quote-form></app-quote-form>
+  <!-- <img src="img/images.jpg" alt="Quotes"> -->
+  <h1>Quotes</h1>
+  <hr>
+
+  <div class="row jumbotron">
+    <div class="col-md-6" id="first">
+      <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
     </div>
-    <div class="col-6" *ngFor='let quote of quotes; let i = index'>
+    <div class="col-md-6" id="second" *ngFor='let quote of quotes; let i = index'>
       <li id="{{i}}" appStrikethrough>{{quote.name}}</li>
       <app-quote-details *ngIf="quote.showConstructor" [quote]='quote' (isComplete)='completeQuote($event,i)'></app-quote-details>
+      <!-- <div class="container" ng-app="myApp" ng-controller="Main">
+        <div class="content">
+          <a href="#" ng-click="doVote()">
+            <i class="glyphicon" ng-class="(like.userVotes==1) ? 'glyphicon-heart' : 'glyphicon-heart-empty'"></i>
+            <span ng-model="like.votes">{{like.votes}}</span>
+          </a>
+        </div>
+      </div> -->
       <button class="btn btn-warning" (click)='toogleConstructors(i)'>Details</button>
     </div>
   </div>
+  <footer>
+    <h5>Created by:<br />Richard Ogamba<br />2018</h5>
+  </footer>
 </div>
 <!-- <ol>
 </ol> -->
